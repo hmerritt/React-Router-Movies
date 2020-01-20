@@ -5,21 +5,21 @@ import MovieList from './Movies/MovieList';
 import Movie     from './Movies/Movie';
 
 const App = () => {
-  const [savedList, setSavedList] = useState( [] );
+    const [savedList, setSavedList] = useState( [] );
 
-  const addToSavedList = movie => {
-    setSavedList( [...savedList, movie] );
-  };
+    const addToSavedList = movie => {
+        setSavedList( [...savedList, movie] );
+    };
 
-  return (
-    <div>
-      <SavedList list={savedList} />
+    return (
+      <div>
+          <SavedList list={savedList} />
 
-      {/* Routes */}
-      <Route path="/" exact component={MovieList} />
-      <Route path="/movie/:id" component={Movie}  />
-    </div>
-  );
+          {/* Routes */}
+          <Route path="/" exact component={MovieList} />
+          <Route path="/movie/:id" render={props => <Movie {...props} addToSavedList={addToSavedList} />}  />
+      </div>
+    );
 };
 
 export default App;
