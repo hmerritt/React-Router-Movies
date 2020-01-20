@@ -15,13 +15,13 @@ const App = () => {
     };
 
     return (
-      <div>
-          <SavedList list={savedList} />
+        <div>
+            <SavedList list={savedList} />
 
-          {/* Routes */}
-          <Route path="/" exact component={MovieList} />
-          <Route path="/movie/:id" render={props => <Movie {...props} addToSavedList={addToSavedList} />}  />
-      </div>
+            {/* Routes */}
+            <Route path="/" exact component={MovieList} />
+            <Route path="/movie/:id" render={props => <Movie {...props} savedList={savedList} addToSavedList={addToSavedList} />}  />
+        </div>
     );
 };
 
